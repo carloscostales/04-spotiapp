@@ -1,0 +1,9 @@
+<div class="form-floating mb-3">
+  <input #termino type="email" class="form-control" id="floatingInput" placeholder="name@example.com" (keyup)="buscar(termino.value)">
+  <label for="floatingInput" class="text-dark">Búsqueda artista...</label>
+</div>
+
+<app-loading *ngIf="loading"></app-loading>
+<div *ngIf="!loading">
+<app-tarjeta-artista [artistasTarjeta]="artistasBusqueda"></app-tarjeta-artista>
+</div>

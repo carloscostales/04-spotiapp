@@ -1,0 +1,18 @@
+
+<div class="row row-cols-1 row-cols-md-5 g-4 animated-fast fade-in">
+  <div class="col" *ngFor="let lanzamiento of items">
+    <div class="card h-100">
+      <img [src]="lanzamiento.images[0].url" class="card-img-top" alt="Portada">
+      <div class="card-body">
+        <a (click)="verAlbum(lanzamiento.id)"><h5 class="card-title">{{ lanzamiento.name }}</h5></a>
+        <!-- <button class="badge text-bg-dark" *ngFor="let artista of lanzamiento.artists" (click)="verArtista(artista.id)">{{artista.name}}</button> -->
+        <a *ngFor="let artista of lanzamiento.artists; last as isLast" (click)="verArtista(artista.id)">{{ artista.name }}<ng-container *ngIf="!isLast">, </ng-container></a>
+
+        <p class="card-text mt-2"><small class="text-white-50">{{ lanzamiento.release_date }}</small></p>
+        <div class="d-grid gap-2">
+          <a class="btn btn-dark">Ver más</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

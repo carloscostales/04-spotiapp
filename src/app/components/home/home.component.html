@@ -1,0 +1,8 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<div *ngIf="!loading">
+  <h1 class="mb-4 animated-fast fade-in">Nuevos lanzamientos</h1>
+  <app-tarjeta-album [items]="lanzamientos"></app-tarjeta-album>
+
+</div>
+

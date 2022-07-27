@@ -1,0 +1,32 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<div *ngIf="!loading" class="animated-fast fade-in mb-5">
+  <div class="row">
+    <div class="col-3">
+      <img [src]="album.images[0].url" class="rounded img-fluid" alt="Portada disco">
+    </div>
+    <div class="col">
+      <h2>{{album.name}}</h2>
+      <p class="text-white-50">{{ album.release_date }}</p>
+      <p class="text-white-50">Popularidad: {{ album.popularity }}</p>
+      <a *ngFor="let artista of album.artists; last as isLast">{{artista.name}}<ng-container *ngIf="!isLast">, </ng-container></a>
+    </div>
+
+    <table class="table text-white mt-5">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">TItulo</th>
+          <th scope="col">Duracion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cancion of canciones">
+          <th>{{ cancion.track_number }}</th>
+          <td>{{ cancion.name }}</td>
+          <td>{{ cancion.duration_ms | date:'mm:ss' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
